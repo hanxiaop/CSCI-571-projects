@@ -1,0 +1,76 @@
+
+
+
+
+<div style="margin-top: 40px;" >
+  <div class="row">
+    <div class="col col-md-12 col-sm-12">
+  <nav class="col col-md-12 col-12 nav nav-pills mb-3  navbar-expand ">
+      <ul class="nav navbar-nav m-auto">
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-Results-tab" data-toggle="pill" href="#pills-Results" role="tab" (click)="checkWhichPage('close', $event)"
+             aria-controls="pills-Results"  aria-selected="false">
+             <!--[ngClass] = "chechInfo === 'clear' ? 'active': ''"-->
+            <!--[(aria-selected)]="(chechInfo === 'clear' || chechInfo === 'aa')"-->
+             <!--(aria-selected)="(chechInfo === 'clear' || chechInfo === 'aa')">-->
+            <span class="align-middle">Results</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-Favorites-tab" data-toggle="pill"
+             href="#pills-Favorites" role="tab" (click)="checkWhichPage('close', $event)"
+             aria-controls="pills-Favorites" aria-selected="false">
+            <span class="align-middle">Favorites</span></a>
+        </li>
+      </ul>
+  </nav>
+</div></div>
+
+  <div class="row" style="margin-top: 30px">
+
+    <div class="tab-content col-md-12" id="pills-tabContent">
+      <div class=" tab-pane fade show active" id="pills-Results" role="tabpanel"
+           aria-labelledby="pills-Results-tab">
+        <app-result-table></app-result-table>
+        <app-detail></app-detail>
+      </div>
+
+      <div class=" tab-pane fade" id="pills-Favorites" role="tabpanel"
+           aria-labelledby="pills-Favorites-tab">
+        <app-favorite></app-favorite>
+        <app-detail></app-detail>
+      </div>
+    </div>
+  </div>
+    <!--<div class="row text-center" style="margin-top: 30px">-->
+      <!--<div class="col-md-12">-->
+        <!--<nav class="nav nav-pills mb-3 navbar-expand-md">-->
+        <!--<ul id="navgition" class="nav navbar-nav mx-auto">-->
+          <!--<li class="active nav-item"><a href="#result" data-toggle="pill" (click)="checkWhichPage('close', $event)">Home</a></li>-->
+          <!--<li class="nav-item"><a href="#favorite" data-toggle="tab" (click)="checkWhichPage('close', $event)">Profile</a></li>-->
+        <!--</ul></nav>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<div id="navigationContent" class="tab-content">-->
+      <!--<div class="tab-pane fade active in" id="result">-->
+        <!--<app-result-table></app-result-table>-->
+        <!--<app-detail></app-detail>-->
+      <!--</div>-->
+      <!--<div class="tab-pane fade" id="favorite">-->
+        <!--<app-favorite></app-favorite>-->
+        <!--<app-detail></app-detail>-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+
+
+
+
+
+
+
+
+</div>
+
+

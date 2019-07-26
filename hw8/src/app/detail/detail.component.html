@@ -1,0 +1,98 @@
+
+
+<!--<div class="row">-->
+  <!--<div class="col-md-12" *ngIf="widthh !== '0' && detailAndListButton ==='detail'" [@slideInRight]="detailAndListButton">-->
+    <!--<div class="progress">-->
+    <!--<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [ngStyle]="{'width': widthh}"-->
+         <!--aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>-->
+  <!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+
+
+<div [@slideInRight]="detailAndListButton"
+     *ngIf="detailAndListButton === 'detail' && changePage === 'open'">
+
+  <div class="progress"
+       *ngIf="widthh !== '0'"
+       style="margin-top: 100px">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [ngStyle]="{'width': widthh}"
+         aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+
+
+  <div class="row"
+       *ngIf="widthh === '0'">
+
+    <div class="col-md-6 col col-sm-6 col-6">
+      <button class="btn btn-outline-secondary" (click)="backToList('list')">
+        <i class="material-icons align-middle">keyboard_arrow_left</i><span class="align-middle">List</span></button>
+    </div>
+    <div class="col-md-6 col text-right col-sm-6 col-6">
+      <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{twitterText}}" target="_blank" style="position: relative; right: 5px">
+        <img src="http://csci571.com/hw/hw8/Images/Twitter.png" width="40px" height="40px"></a>
+      <button class="btn btn-outline-secondary" (click)="checkEventFavStatus(j)">
+        <i *ngIf="favoritecheck === false" class="material-icons align-middle">star_border</i>
+        <i *ngIf="favoritecheck === true" class="material-icons align-middle" style="color: #fff50f">star</i>
+      </button>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 30px"
+       *ngIf="widthh === '0'">
+    <div class="col col-md-12 col-sm-12 col-12"><span class="text-center"><h4>{{thesIngleJson.name}}</h4></span></div>
+
+    <div class="col col-md-12 col-sm-12 col-12 justif">
+    <ul class="col col-md-12 col-sm-12 col-12 nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item ml-md-auto ml-sm-auto">
+        <a class="nav-link" [ngClass]="tabId === 'event' ? 'active' : ''" id="evt-tab" data-toggle="tab" href="#evt"
+           role="tab" aria-controls="evt" aria-selected="true" (click)="changeTab('event')">Event</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="artist-tab" [ngClass]="tabId === 'artist'? 'active' : ''" data-toggle="tab" href="#artist" role="tab"
+           aria-controls="artist" aria-selected="false" (click)="changeTab('artist')">Artist/Teams</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="venue-tab" [ngClass]="tabId === 'venue'? 'active' : ''" data-toggle="tab" href="#venue" role="tab"
+           aria-controls="venue" aria-selected="false" (click)="changeTab('venue')" >Venue</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="upcoming-tab" [ngClass]="tabId === 'upcoming'? 'active' : ''" data-toggle="tab" href="#upcoming" role="tab"
+           aria-controls="upcoming" aria-selected="false" (click)="changeTab('upcoming')">Upcoming Events</a>
+      </li>
+    </ul>
+    </div>
+
+  </div>
+
+  <div class="row" style="margin-top: 20px" *ngIf="widthh === '0'">
+    <div class="col-md-12">
+      <app-events *ngIf="tabId === 'event'"></app-events>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 20px" *ngIf="widthh === '0'">
+    <div class="col-md-12" >
+      <app-artist *ngIf="tabId === 'artist'"></app-artist>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 20px" *ngIf="widthh === '0'">
+    <div class="col-md-12">
+      <app-venue *ngIf="tabId === 'venue'"></app-venue>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 20px" *ngIf="widthh === '0'">
+    <div class="col-md-12">
+      <app-upcomingevent *ngIf="tabId === 'upcoming'"></app-upcomingevent>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+</div>

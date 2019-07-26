@@ -1,0 +1,55 @@
+<div class="container" *ngIf="data">
+  <div class="text-center"><h4>{{data.name ? data.name:'N/A'}}</h4></div>
+
+  <div>
+    <table class="table table-striped" >
+      <tbody>
+      <tr class="row">
+        <td class="col-md-2 col-sm-5 col-5"><b>Address</b></td>
+        <td class="col-md-10 col-sm-7 col-7">{{data.address ? data.address :'N/A'}}</td>
+      </tr>
+      <tr class="row">
+        <td class="col-md-2 col-sm-5 col-5"><b>City</b></td>
+        <td class="col-md-10 col-sm-7 col-7">{{data.city? data.city :'N/A'}}</td>
+      </tr>
+      <tr *ngIf="data.phoneNumber" class="row">
+        <td class="col-md-2 col-sm-5 col-5"><b>Phone Number</b></td>
+        <td class="col-md-10 col-sm-7 col-7">{{data.phoneNumber ? data.phoneNumber :'N/A'}}</td>
+      </tr>
+      <tr class="row">
+        <td class="col-md-2 col-sm-5 col-5"><b>Open Hours</b></td>
+        <td class="col-md-10 col-sm-7 col-7">{{data.openhours ? data.openhours :'N/A'}}</td>
+      </tr>
+      <tr class="row">
+        <td class="col-md-2 col-sm-5 col-5"><b>General Rule</b></td>
+        <td class="col-md-10 col-sm-7 col-7">{{data.generalRule ? data.generalRule :'N/A'}}</td>
+      </tr>
+      <tr class="row">
+        <th class="col-md-2 col-sm-5 col-5"><b>Child Rule</b></th>
+        <td class="col-md-10 col-sm-7 col-7">{{data.childRukle ? data.childRukle : 'N/A'}}</td>
+      </tr>
+
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 col-12 changeMapSize" *ngIf="lat !== undefined">
+    <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng">
+        <!--<agm-info-window>-->
+        <!--{{data.name}} <br>-->
+        <!--{{data.address}} <br>-->
+        <!--{{data.city}}<br>-->
+        <!--<a href=# target="_blank">View on Google Maps</a>-->
+
+        <!--</agm-info-window>-->
+      </agm-marker>
+    </agm-map>
+  </div>
+
+</div>
+

@@ -1,0 +1,77 @@
+
+
+<div class="container" *ngIf="resultArray && noDataMessage !== 'noData'">
+  <div class="row">
+    <select id="type"
+            name="type" class="form-control col-md-3 col-12"
+            (change)="changeSort($event)" [(ngModel)] = 'defaultSort'>
+      <option value="Default">Default</option>
+      <option value="Event Name">Event Name</option>
+      <option value="Time">Time</option>
+      <option value="Artist">Artist</option>
+      <option value="Type">Type</option>
+    </select>
+
+    <select id="sort" class="form-control col-md-3 col-12"
+            name="sort" [(ngModel)] = 'defalutAscending' (change)="changeSort($event)" [disabled]="defaultSort==='Default'">
+      <option value="Ascending">Ascending</option>
+      <option value="Descending">Descending</option>
+    </select>
+  </div>
+
+  <div *ngIf="resultArray">
+    <div class="row">
+    <div class="card col-md-12 col-sm-12 col-12" style="margin-top: 8px" *ngFor="let eachEvent of resultArray">
+      <div class="card-body">
+        <a href="{{eachEvent.uri}}" target="_blank">{{eachEvent.name}}</a><br>
+        <span class="artist" style="color: #e17148">Artist: {{eachEvent.artist}}</span>
+        <span class="date" style="color: #a2a2a7">&nbsp;&nbsp;
+          {{eachEvent.date +' ' +eachEvent.time}}</span><br>
+        Type: {{eachEvent.type}}
+      </div>
+    </div>
+
+    </div>
+    <div *ngIf="restArray.length > 5">
+
+
+
+      <div [@fadeAnim]="showEvt" class="row" *ngIf="restArray && showEvt === 'closepage'">
+
+        <div class="card col-md-12 col-sm-12 col-12" style="margin-top: 8px"
+              *ngFor="let eachEvent of restArray">
+          <div class="card-body">
+            <a href="{{eachEvent.uri}}" target="_blank">{{eachEvent.name}}</a><br>
+            <span class="artist" style="color: #e17148">Artist: {{eachEvent.artist}}</span>
+            <span class="date" style="color: #a2a2a7">&nbsp;&nbsp;
+            {{eachEvent.date +' ' +eachEvent.time}}</span><br>
+            Type: {{eachEvent.type}}
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row"><div class="col text-center col-md-12" style="margin-top: 10px">
+        <button *ngIf="showEvt === 'normal'" class="btn btn-primary" (click)="showEvent()">Show More</button>
+        <button *ngIf="showEvt === 'closepage'" class="btn btn-primary" (click)="showEvent()">Show Less</button>
+      </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<div *ngIf="noDataMessage === 'noData'"
+     class="container d-flex" style="background-color: rgb(255,243,203);color: #5b2d1a; height: 50px; margin-top: 30px">
+  <div class="row justify-content-center align-self-center" style="margin-left: 20px">
+    No records.
+  </div>
+</div>
+
+
+
+

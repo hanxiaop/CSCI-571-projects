@@ -1,0 +1,29 @@
+tr:hover {
+  background-color: rgba(187, 187, 192, 0.53);
+
+}
+
+.btn-outline-secondary{
+  border: 1px solid #cfcfcf;
+  color: black;
+
+}
+
+
+.btn-outline-secondary:hover {
+  background-color: rgba(178, 183, 185, 0.49);
+  color: black;
+}
+.btn-outline-secondary:disabled{
+  background-color: white;
+  color: #cfcfcf;
+
+}
+
+@media (min-width: 992px) {
+  .table-responsive{
+    display: table;
+  }
+
+}
+

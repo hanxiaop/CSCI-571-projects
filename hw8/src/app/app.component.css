@@ -1,0 +1,14 @@
+.container {
+
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+
+}
+
+
+.btn-outline-secondary{
+  border: 1px solid #e0e5e7;
+  color: black;
+
+}

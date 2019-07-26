@@ -1,0 +1,60 @@
+<div class="container" *ngIf="(eventsArray.length > 0) && detailAndListButton !== 'notShown' && showPage === 'showPage'">
+  <div class="row" *ngIf="eventsArray !== []" [@slideInLeft]="slideInLeft">
+
+    <div class="col-md-12">
+      <button class="btn btn-outline-secondary float-right" [disabled]="detailAndListButton === 'detaildisabled'"
+              (click)="showThePage('detail2')"><span class="align-middle">Details</span><i class="material-icons align-middle">keyboard_arrow_right</i></button>
+    </div>
+  </div>
+    <table class="table table-hover table-responsive" [@slideInLeft]="slideInLeft">
+      <thead>
+      <tr scope="row">
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Event</th>
+        <th scope="col">Category</th>
+        <th scope="col">Venue Info</th>
+        <th scope="col">Favorite</th>
+      </tr>
+      </thead>
+      <!--[ngStyle]="{'background-color': checkColorArr[j]=== j? 'rgb(249,224,167)' : ''}"-->
+      <tbody>
+      <tr *ngFor="let i of eventsArray; let j = index;" scope="row"
+          (mouseover)="hoverActive[j] = true"
+          (mouseout)="hoverActive[j] = false"
+          [ngStyle]="hoverActive[j] ? {'background-color': 'rgba(187, 187, 192, 0.53)'}
+          : {'background-color': i.favoCheck ? 'rgb(249,224,167)' : ''}"
+          [ngStyle] ="{'background-color': i.favoCheck ? 'rgb(249,224,167)' : ''}" >
+        <td class="align-middle text-nowrap">{{j+1}}</td>
+        <td class="align-middle text-nowrap">{{i.date}}</td>
+        <td class="align-middle text-nowrap" *ngIf="i.event !== ''"><a href="#" (click)="goTodetail(j)" matTooltip="{{i.eventLong}}">{{i.event}}</a></td>
+        <td class="align-middle text-nowrap" *ngIf="i.event === ''" ><a href="#" (click)="goTodetail(j)">{{i.eventLong}}</a></td>
+        <td class="align-middle text-nowrap">{{i.category}}</td>
+        <td class="align-middle text-nowrap">{{i.venue}}</td>
+        <td class="align-middle text-nowrap">
+          <button class="btn btn-outline-secondary" (click)="deleteEvent(j)">
+            <i class="material-icons align-middle">delete</i>
+          </button>
+        </td>
+      </tr>
+
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+
+<div *ngIf="(eventsArray.length === 0 && (chechPage ==='open')) && showPage === 'showPage'"
+     class="container d-flex" style="background-color: rgb(255,243,203);color: #5b2d1a; height: 50px; margin-top: 30px">
+  <div class="row justify-content-center align-self-center" style="margin-left: 20px">
+    No records.
+  </div>
+</div>
+
+
+
+
+
+

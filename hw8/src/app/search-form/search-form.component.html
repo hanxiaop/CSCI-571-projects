@@ -1,0 +1,119 @@
+
+
+  <form (ngSubmit)="submitForm(f)" #f="ngForm" class="bg-light rounded border sometext"
+        style="border: 1px solid gray;">
+    <div class="row form-group">
+      <div class="col text-center"><b>Entertainment Event Ticket Search</b></div></div>
+    <div class="form-group row required">
+      <div class="col col-md-2 col-sm-12 col-12"></div>
+      <label for="keyword" class="col col-sm-2 col-form-label col-12 col">
+        <!--[ngClass]="{'is-invalid': keyword.invalid && (keyword.dirty || keyword.touched)}"-->
+        <span class="text-left">Keyword</span></label>
+      <div class="col-md-6 col col-sm-11 col-11">
+
+
+        <input id="keyword" type="text"
+               name="keyword" ngModel class="form-control"
+               required #keyword="ngModel"
+               (input)="onInputChanged($event.target.value)" [matAutocomplete]="auto"
+               [(ngModel)]="searchForm.keyword">
+        <mat-autocomplete #auto="matAutocomplete" class="shadow p-3 mb-5 bg-white rounded">
+          <mat-option *ngFor="let option of options"
+                      [value]="option">{{ option }}</mat-option>
+        </mat-autocomplete>
+
+
+        <span class="help-block" *ngIf="!keyword.valid && (keyword.touched)">Please enter a keyword.</span>
+
+      </div>
+
+
+
+
+      <div class="col-md-2"></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-2 col-sm-12 col col-12"></div>
+      <label for="category" class="col col-md-2 col-sm-11 col-11 col-form-label">Category</label>
+      <div class="col-md-2 col col-sm-11 col-11">
+        <select id="category" class="form-control"
+                name="category" [(ngModel)]="searchForm.category">
+          <option value="All">All</option>
+          <option value="Music">Music</option>
+          <option value="Sports">Sports</option>
+          <option value="ArtandTheatre">Arts & Theatre</option>
+          <option value="Film">Film</option>
+          <option value="Miscellaneous">Miscellaneous</option>
+        </select>
+      </div>
+      <div class="col col-md-8"></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-2 col col-sm-12 col-12"></div>
+      <label for="distance" class="col col-sm-11 col-md-2 col-11 col-form-label">Distance</label>
+      <div class="col-md-2 col col-sm-11 col-11">
+        <input type="text" class="form-control" name='distance' id="distance"
+               placeholder="10" [(ngModel)]="searchForm.distance" >
+      </div>
+      <div class="col col-md-2 col-sm-11 col-11">
+        <select id="units" class="form-control" name="units" [(ngModel)]="searchForm.unit">
+          <option value="Miles">Miles</option>
+          <option value="Kilometers">Kilometers</option>
+        </select>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
+
+    <div class="form-group row required">
+      <div class="col col-md-2"></div>
+      <label class="col col-md-2 col-sm-12 col-12 col-form-label">From</label>
+      <div class="col col-md-6 col-sm-12 col-12">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input"
+                   name="location" ngModel
+                   [value]="true" checked
+                   [(ngModel)]="searchForm.hereLocation" (click)="radioButCheck(1)">Current location
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input"
+                   name="location" [value]="false" (click)="radioButCheck(2)" [(ngModel)]="searchForm.hereLocation">Other. Please specify:
+          </label><!--(click)="radioButCheck(1)" (click)="radioButCheck(2)"-->
+        </div>
+
+        <div class="col-sm-11 col-md-12 col-11 locatInput">
+          <input type="text" name="typedLocation" id="locationValue"
+                 class="form-control" required
+                 [disabled]="searchForm.hereLocation || original === '111'"
+                 [(ngModel)]="searchForm.locationValue"
+
+                 #locationValue="ngModel">
+          <span class="help-block" *ngIf="!locationValue.valid && locationValue.touched && needLocationType">Please enter a location.</span>
+
+        </div>
+      </div>
+      <div class="col col-md-2"></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col col-md-2"></div>
+      <div class="col col-md-8 col-sm-12 col-12">
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid"><i class="material-icons align-middle">search</i>Search</button>
+        <button class="btn btn-outline-dark resetBut"
+                type="button" (click)="resetFormInfo(f, $event)"
+                style="position:relative; left: 5px;"><i class="material-icons align-middle">clear_all</i>Clear</button>
+
+      </div>
+
+    </div>
+
+
+  </form>
+
+
+

@@ -1,0 +1,9 @@
+agm-map{
+  height: 400px;
+}
+.changeMapSize {
+  height: 100% !important;
+  width: 100%;
+  margin: 0;
+
+}

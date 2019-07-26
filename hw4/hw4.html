@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homenwork 4</title>
+    <script type="text/javascript">
+        function viewJSON(what) {
+            var URL = what.URL.value;
+            if (URL === "") {
+                return alert("Error! Need to type a JSON file name!");
+            }
+
+
+            function loadJSON(url) {
+                if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {// code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                
+               // try {
+                xmlhttp.open("GET", url, false); // "synchronous"
+                xmlhttp.send();
+               // }catch (e) {
+                //    alert("Error! File doesn't exist. Please enter a valid file name.")
+               // }
+                if (xmlhttp.status === 404){
+                    return alert("Error! File doesn't exist. Please enter a valid file name.")
+                }
+                jsonObj = JSON.parse(xmlhttp.responseText);
+                return jsonObj;
+            }
+
+            jsonObj = loadJSON(URL);
+
+
+            errorCheck = jsonObj.Mainline.Table;
+            if (errorCheck.hasOwnProperty("Row") && errorCheck.Row.length >0 ) {
+
+                if (window.ActiveXObject) //if IE, simply execute script (due to async prop).
+                {
+                    if (jsonObj.parseError.errorCode != 0) {
+                        var myErr = jsonObj.parseError;
+                        generateError(jsonObj);
+
+                        hWin = window.open("", "Error", "height=300,width=340");
+                        hWin.document.write(html_text);
+                    } else {
+                        generateHTML(jsonObj);
+                        hWin = window.open("", "Assignment4", "height=800,width=600");
+                        hWin.document.write(html_text);
+                    }
+                } else //else if FF, execute script once JSON object has loaded
+                {
+                    jsonObj.onload = generateHTML(jsonObj);
+                    hWin = window.open("", "Assignment4", "height=800,width=600");
+                    hWin.document.write(html_text);
+                }
+                hWin.document.close();
+            }else {
+                return alert("Error! There is no company name in the JSON file.");
+            }
+
+
+            function generateHTML(jsonObj) {
+                root = jsonObj.DocumentElement;
+
+                //errorCheck = jsonObj.Mainline.Table;
+
+                //if (errorCheck.hasOwnProperty("Row") && errorCheck.Row.length >0 ) {
+                    html_text = "<html><head><meta charset=\"UTF-8\"><title>Top Container Shipping Companies</title></head><body>";
+                    html_text += "<table border='2'>";
+                    html_text += "<tbody>";
+                    html_text += "<tr>";
+                    headerJson = jsonObj.Mainline.Table.Header.Data;
+                    for (i = 0; i < headerJson.length; i++) {
+                        headerH = headerJson[i];
+                        html_text += "<th>" + headerH + "</th>";
+                    }
+                    html_text += "</tr>";
+
+                    rowJson = jsonObj.Mainline.Table.Row;
+
+
+                    for (j = 0; j < rowJson.length; j++) {
+                        html_text += "<tr>";
+
+                        rowJsonKeys = Object.keys(rowJson[j]);
+                        rowJsonValues = Object.values(rowJson[j]);
+                        for (k = 0; k < rowJsonKeys.length; k++) {
+
+
+                            if (rowJsonKeys[k] == "Company" || rowJsonKeys[k] == "Ships" || rowJsonKeys[k] == "Market") {
+                                html_text += "<td>" + rowJsonValues[k] + "</td>";
+                            } else if (rowJsonKeys[k] == "Hubs") {
+                                html_text += "<td>";
+                                hubArray = rowJson[j].Hubs.Hub;
+
+                                for (l = 0; l < hubArray.length; l++) {
+                                    if (l == 0) {
+                                        html_text += "<li><b>" + hubArray[l] + "</b></li>";
+                                    } else {
+                                        html_text += "<li>" + hubArray[l] + "</li>";
+                                    }
+                                }
+                                html_text += "</ul>";
+                                html_text += "</td>";
+                            } else if (rowJsonKeys[k] == "HomePage") {
+                                html_text += "<td>";
+                                html_text += "<a href=\"" + rowJsonValues[k] + "\">" + rowJsonValues[k] + "</a>";
+                                html_text += "</td>";
+                            } else if (rowJsonKeys[k] == "Logo") {
+
+                                html_text += "<td>";
+                                html_text += "<img src='" + rowJsonValues[k].url + "'width=\"150\" height=\"100\">";
+                                html_text += "</td>";
+
+
+                            } else {
+                                html_text += "<td>" + rowJsonValues[k] + "</td>";
+                            }
+
+                        }
+                        html_text += "</tr>";
+                    }
+
+
+                    html_text += "</tbody>";
+                    html_text += "</table>";
+
+                    html_text += "</body></html>";
+              //  }else  {
+              //      html_text = "<html><head><meta charset=\"UTF-8\"><title>JSON Parse Result</title></head><body>";
+              //      html_text += "Error! There is no company name in the JSON file."
+              //      html_text += "</body></html>";
+              //  }
+
+            }
+        }
+
+    </script>
+</head>
+<body style="text-align: center; vertical-align: middle; line-height: 50px">
+<h1 style="padding: 170px 0px 0px 0px">Enter URL for Container Shipping Companies List JSON File</h1>
+
+
+
+<form id = "location" METHOD="POST" name="myform">
+    <input id="jasonfile" type="text" name="URL" value="containerlist.json"><br/>
+    <input type="button" value="Submit Query" name="submit" onclick="viewJSON(this.form)" ><p>
+
+
+</form>
+
+
+</body>
+</html>

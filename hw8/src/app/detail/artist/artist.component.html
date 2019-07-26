@@ -1,0 +1,108 @@
+
+  <div *ngFor="let items of nameListAR; let i = index">
+    <div class="container">
+    <div *ngIf="artistModel[i]" style="position: relative; top: 20px;">
+      <div *ngIf="artistModel[i].name !== ''">
+        <div class="text-center"><h4>{{artistModel[i].name}}</h4></div>
+        <table class="table table-striped" >
+          <tbody>
+          <tr class="row">
+            <td class="col-md-6 col-sm-5 col-5"><b>Name</b></td>
+            <td  class="col-md-6 col-sm-7 col-7">{{artistModel[i].name}}</td>
+          </tr>
+          <tr class="row">
+            <td class="col-md-6 col-sm-5 col-5"><b>Followers</b></td>
+            <td class="col-md-6 col-sm-7 col-7">{{artistModel[i].followers | number: '2.'}}</td>
+          </tr>
+          <tr class="row">
+            <td class="col-md-6 col-sm-5 col-5"><b>Popularity</b></td>
+            <td class="col-md-6 col-sm-7 col-7 tdata">
+              <round-progress
+                [current]="artistModel[i].popularity"
+                [max]="100"
+                [color]="'#24e30d'"
+                [background]="'#eaeaea'"
+                [radius]="25"
+                [stroke]="4"
+                [semicircle]="false"
+                [rounded]="true"
+                [clockwise]="false"
+                [responsive]="false"
+                [duration]="800"
+                [animation]="'easeInOutQuart'"
+                [animationDelay]="0">{{artistModel[i].popularity}}</round-progress>
+              <div class="text">{{artistModel[i].popularity}}</div>
+          </tr>
+          <tr class="row">
+            <td class="col-md-6 col-sm-5 col-5"><b>Check At</b></td>
+            <td class="col-md-6 col-sm-7 col-7"><a href="{{artistModel[i].checkat}}" target="_blank">Spotify</a></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+
+    <div *ngIf="artistPhoto[i]">
+      <div class="row">
+      <div class="text-center col col-md-12 col-sm-12 col-12" *ngIf="artistModel[i].name === ''"><h4>{{items}}</h4></div>
+      </div>
+      <div class="row" *ngIf="artistPhoto[i].length <= 3">
+        <div class="text-left">
+          <a class="col col-md-4 col-sm-12 col-12" *ngIf="artistPhoto[i][0]" href="{{artistPhoto[i][0].obj.linkimg}}"
+             target="_blank"><img src="{{artistPhoto[i][0].obj.linkimg}}" class="img rounded img-thumbnail float-md-left"></a>
+        </div>
+        <div class="text-center">
+          <a class="col col-md-4 col-sm-12 col-12" *ngIf="artistPhoto[i][1]" href="{{artistPhoto[i][1].obj.linkimg}}"
+             target="_blank"><img src="{{artistPhoto[i][1].obj.linkimg}}" class="img rounded img-thumbnail"></a>
+        </div>
+        <div class="text-right">
+          <a class="col col-sm-12 col-md-4 col-12" *ngIf="artistPhoto[i][2]" href="{{artistPhoto[i][2].obj.linkimg}}"
+             target="_blank"><img src="{{artistPhoto[i][2].obj.linkimg}}" class="img rounded img-thumbnail float-md-right"></a>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="artistPhoto[i].length > 3">
+        <div class="col col-md-4 col-sm-12 col-12 text-left">
+          <a class="col-sm-12" href="{{artistPhoto[i][0].obj.linkimg}}" target="_blank">
+            <img src="{{artistPhoto[i][0].obj.linkimg}}" class="img rounded img-thumbnail float-md-left"></a>
+          <a class="col-sm-12 col-12" href="{{artistPhoto[i][1].obj.linkimg}}" target="_blank">
+            <img src="{{artistPhoto[i][1].obj.linkimg}}" class="img rounded img-thumbnail float-md-left"></a>
+        </div>
+        <div class="col col-md-4 col-sm-12 col-12 text-center">
+          <a class="col-sm-12 col-12" href="{{artistPhoto[i][4].obj.linkimg}}" target="_blank">
+            <img src="{{artistPhoto[i][4].obj.linkimg}}" class="img rounded img-thumbnail"></a>
+          <a class="col-sm-12 col-12" *ngIf="artistPhoto[i][6]" href="{{artistPhoto[i][6].obj.linkimg}}" target="_blank">
+            <img src="{{artistPhoto[i][6].obj.linkimg}}" class="img rounded img-thumbnail"></a>
+          <a class="col-sm-12 col-12"  *ngIf="artistPhoto[i][2]" href="{{artistPhoto[i][2].obj.linkimg}}" target="_blank">
+            <img src="{{artistPhoto[i][2].obj.linkimg}}" class="img rounded img-thumbnail"></a>
+        </div>
+        <div class="col col-md-4 col-sm-12 col-12 text-right">
+          <a class="col-sm-12 col-12" href="{{artistPhoto[i][3].obj.linkimg}}" target="_blank">
+            <img src="{{artistPhoto[i][3].obj.linkimg}}" class="img rounded img-thumbnail float-md-right"></a>
+          <a class="col-sm-12 col-12" *ngIf="artistPhoto[i][5]" href="{{artistPhoto[i][5].obj.linkimg}}" target="_blank">
+            <img src="{{artistPhoto[i][5].obj.linkimg}}" class="img rounded img-thumbnail float-md-right"></a>
+          <a class="col-sm-12 col-12" *ngIf="artistPhoto[i][7]" href="{{artistPhoto[i][7].obj.linkimg}}" target="_blank">
+            <img src="{{artistPhoto[i][7].obj.linkimg}}" class="img rounded img-thumbnail float-md-right"></a>
+        </div>
+      </div>
+
+
+      <!--<div class="row" style="margin-top: 20px">-->
+        <!--<div class="text-center col-md-12" *ngIf="artistModel[i].name === ''"><h4>{{items}}</h4></div>-->
+        <!--<div class="col-xs-6 col-md-4" *ngFor="let pictu of artistPhoto[i]" style="position: relative; top: 20px;">-->
+          <!--<div class="panel panel-default"><div class="panel-body">-->
+            <!--<a href="{{pictu}}" target="_blank"><img src="{{pictu}}"-->
+                                                     <!--alt="Responsive image" class="img-thumbnail"></a></div></div>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+
+
+
+
+  </div>
+
+
+
+

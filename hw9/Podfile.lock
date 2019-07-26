@@ -1,0 +1,65 @@
+PODS:
+  - Alamofire (4.8.0)
+  - EasyToast (2.0.2)
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.7.0):
+    - GoogleMaps/Base (= 2.7.0)
+  - ImageLoader (0.14.0)
+  - Kingfisher (4.10.1)
+  - LUAutocompleteView (3.0.0)
+  - McPicker (2.0.0)
+  - SearchTextField (1.2.2)
+  - SwiftSpinner (1.6.2)
+  - SwiftyJSON (4.2.0)
+  - Validator (3.1.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - EasyToast
+  - GoogleMaps
+  - GooglePlaces
+  - ImageLoader
+  - Kingfisher
+  - LUAutocompleteView
+  - McPicker
+  - SearchTextField
+  - SwiftSpinner
+  - SwiftyJSON
+  - Validator
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - EasyToast
+    - GoogleMaps
+    - GooglePlaces
+    - ImageLoader
+    - Kingfisher
+    - LUAutocompleteView
+    - McPicker
+    - SearchTextField
+    - SwiftSpinner
+    - SwiftyJSON
+    - Validator
+
+SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  EasyToast: 2844de2158fe8d2313c6de81b5a858a909d82532
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
+  ImageLoader: 56f57e35d6ed26a74183dc2e472133b4b22eb7b9
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  LUAutocompleteView: 41f4b6d8871b66d71070ee00d33070f9b3d293c5
+  McPicker: 1d11ad8c07c337a16dd9397e45f321125304cbb0
+  SearchTextField: a0992739d4b05dcbb40fb3a5cc6526bd991bdd23
+  SwiftSpinner: 3a4c6dea425e5a31b908a8b1dd5dcd1ad4d96340
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  Validator: b34ab17a8fffd0c1ffd8f9002ead4d1e02cd9e6e
+
+PODFILE CHECKSUM: 35c1bd528871a338819ac32333b8c7b48160ede3
+
+COCOAPODS: 1.5.3

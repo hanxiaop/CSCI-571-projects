@@ -1,0 +1,422 @@
+.outer{
+    width: 1595px;
+    margin: auto;
+}
+
+.menuPart{
+    width: 1595px;
+    height: 18px;
+    padding: 63px;
+    background-color: white;
+    background-attachment: scroll;
+    margin: auto;
+
+}
+
+.menu{
+    color: black;
+    font-family: 'Raleway',Helvetica, Arial, sans-serif;
+    font-size: 120%;
+    margin: 60px 62px 0px;
+    width: 50px;
+
+}
+.links{
+    font-size: 100%;
+    width: 260px;
+    margin: 0px 985px;
+    position: relative;
+
+}
+a:link,a:visited{
+    font-family: 'Roboto',Helvetica, Arial, sans-serif;
+    color: lightgrey;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover{
+    color: black;
+    text-decoration: none;
+}
+.box2{
+    margin: auto;
+    width: 1595px;
+    height: 935px;
+
+
+    background: url("http://csci571.com/hw/hw3/images/lawyer.jpg") no-repeat scroll;
+    background-size:cover;
+
+
+    background-position: 40% 50%;
+}
+.blueBox{
+    background-color: rgb(24,59,90);
+    width: 490px;
+    height: 560px;
+    margin: 187px 105px;
+    position: absolute;
+
+}
+.firstline{
+    color: white;
+    width: 140px;
+    margin: 68px 50px 2px;
+    font-family: 'Raleway',Arial, sans-serif;
+    font-size: 13pt;
+}
+p.secondline{
+    color: white;
+    height: 47px;
+    font-family: 'Montserrat','Raleway',Arial, sans-serif;
+    font-size: 35pt;
+    margin: 1px 50px;
+    letter-spacing: -2px;
+    font-stretch: condensed;
+}
+p.thirdline{
+
+    margin: 26px 50px;
+    font-family: Avenir,Arial, sans-serif;
+    font-size: 12pt;
+    font-style: italic;
+    color: rgb(252,221,25);
+}
+
+input::placeholder{
+    color: black;
+    opacity: 1;
+}
+.inputt{
+    width:375px;
+    height:55px;
+    font-size: 16pt;
+    size: 20pt;
+    border: 1px solid black;
+}
+input:hover::placeholder{
+    color: grey;
+    opacity: 0.5;
+}
+
+
+p.inputSpace{
+
+    margin: 33px 50px 0px;
+    height: 70px;
+}
+.yellowbottom{
+    background-color: rgb(252,221,25);
+    border:none;
+    margin: 25px 50px;
+    width: 205px;
+    height: 55px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: 55px;
+    font-size: 16px;
+}
+.yellowbottom:hover{
+    background-color: rgb(30,37,47);
+    border:none;
+    color: white;
+    margin: 25px 50px;
+    width: 205px;
+    height: 55px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: 55px;
+    font-size: 16px;
+}
+
+.feature{
+    margin: auto;
+    width: 1595px;
+    height: 545px;
+    padding: 0px 100px;
+    background-attachment: scroll;
+}
+.threeFeatures{
+    float: left;
+    width: 491.6px;
+    height: 545px;
+
+}
+.featuretitle{
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 15pt;
+    width: 250px;
+    margin: 160px 0px 0px 0px;
+
+
+}
+.featureContent{
+    font-family: 'ubuntu', Arial, sans-serif;
+    font-size: 13pt;
+    width: 425px;
+    height: 155px;
+    margin: 24px 0px 0px 0px;
+    color: rgb(136,137,138);
+    line-height: 24px;
+
+}
+
+.clear{
+    clear: left;
+}
+.ceo{
+    margin: auto;
+    background-color: rgb(244,244,244);
+    width: 1595px;
+    height: 140px;
+    text-align: center;
+    padding: 165px 0px;
+    position: absolute;
+
+}
+p.ceoandprice{
+    font-size: 19pt;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: lighter;
+}
+.wordlight{
+    font-family: Avenir, Arial, sans-serif;
+    font-size: 12pt;
+    font-weight: bolder;
+}
+.wordlight2{
+    font-size: 12pt;
+    font-family: Avenir, Arial, sans-serif;
+    color: rgb(132,132,133);
+
+}
+
+.price{
+    margin: auto;
+    background-image: url("http://csci571.com/hw/hw3/images/glasses.png");
+    background-color: rgba(255,255,255,1);
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 155%;
+    background-position: 62% 40%;
+    width: 1595px;
+    height: 1060px;
+    position: absolute;
+    font-size: 0pt;
+    top: 2103px;
+    opacity: 0.3;
+    background-blend-mode: luminosity;
+}
+.blackck{
+    background-color: rgb(255,255,255);
+    opacity: 1;
+    width: 1595px;
+    height: 1060px;
+    position: absolute;
+    font-size: 0pt;
+    top: 2103px;
+}
+
+
+
+.priceHead{
+    margin: auto;
+    padding: 0px;
+}
+
+.pricewords{
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: black;
+    position: relative;
+    top: 503px;
+    etter-spacing: -1px;
+
+}
+.priceName{
+    width: 100px;
+    font-size: 19pt;
+    margin: 50px 750px 0px;
+}
+.exp{
+    width: 300px;
+    font-size: 13pt;
+    margin: 20px 670px 0px;
+    color: gray;
+    filter: opacity(80%);
+}
+.grid{
+    float: left;
+    position: relative;
+    top: 625px;
+
+    margin: 0px 48px 0px 0px;
+}
+.background{
+    background-image: url("http://csci571.com/hw/hw3/images/grid.png");
+    height: 680px;
+    width: 430px;
+    background-color: rgba(255,255,255,1);
+    background-blend-mode: luminosity;
+    opacity: 0.1;
+    position: absolute;
+    top: 0px;
+    background-size: cover;
+    background-position: 25px 50px;
+
+}
+.textbackground{
+    height: 680px;
+    width: 430px;
+    border: 1px solid white;
+    background-color: white;
+}
+.textttt{
+    position: absolute;
+    top: 0px;
+}
+h1.plann{
+    width: 190px;
+    font-size: 15pt;
+    font-family: 'Montserrat','Raleway',Helvetica, Arial, sans-serif;
+    letter-spacing: -1px;
+    margin: 88px 120px 0px;
+    text-align: center;
+}
+.smallblock{
+    margin: 40px 0px;
+
+}
+p.planfeature{
+    width:200px;
+    font-size: 12pt;
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 24px 120px;
+    filter: opacity(80%);
+;
+}
+.monthlyPrice{
+    width: 200px;
+    height: 80px;
+    font-size: 26pt;
+    margin: 70px 160px 0px;
+    font-family: "Noyh light",Helvetica, Arial, sans-serif;
+}
+.buyButton{
+    background-color: rgb(24,59,91);
+    color: white;
+    font-family: 'Montserrat', Arial, sans-serif;
+    width: 185px;
+    height: 73px;
+    font-size: 14pt;
+    text-align: center;
+    line-height: 73px;
+    margin: 42px 125px;
+    border: none;
+
+}
+.buyButton:hover{
+    background-color: rgb(30,37,47);
+    color: white;
+    font-family: 'Montserrat', Arial, sans-serif;
+    width: 185px;
+    height: 73px;
+    font-size: 14pt;
+    text-align: center;
+    line-height: 73px;
+    margin: 42px 125px;
+
+}
+
+.gridouter{
+   margin: 0px 105px;
+    width: 2000px;
+}
+.notebookbackground {
+    background-image: url("http://csci571.com/hw/hw3/images/notebook.jpg");
+    background-position:  99% 52%;
+    width: 1595px;
+    height: 630px;
+    position: absolute;
+    top: 3163px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.blueground{
+    background-color: rgb(0,55,90,0.7);
+    position: absolute;
+    top: 3163px;
+    width: 1595px;
+    height: 630px;
+
+
+}
+.wordpart{
+    position: relative;
+    top: 725px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+.wordline1{
+    font-size: 25pt;
+    margin: 228px 0px 0px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+.wordline2{
+    font-size: 14pt;
+    margin: 13px 0px 0px;
+}
+.wordline3{
+    font-size: 14pt;
+    height: 59px;
+    width: 231px;
+    background-color: rgb(252,221,25);
+    line-height: 59px;
+    margin: 43px 676px;
+    color: black;
+    border: none;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.wordline3:hover{
+    font-size: 14pt;
+    height: 59px;
+    width: 231px;
+    background-color: rgb(30,37,47);
+    line-height: 59px;
+    margin: 43px 676px;
+    color: white;
+    border: none;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+.backgroundd{
+    background-color: rgb(30,37,47);
+    position: absolute;
+    top: 3793px;
+    width: 1595px;
+    height: 382px;
+}
+.wordss{
+    position: relative;
+    top: 925px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    text-align: center;
+}
+.biz{
+    color: white;
+    font-size: 14pt;
+    margin: 145px 0px 0px;
+}
+.address{
+    color: grey;
+    font-size: 10pt;
+
+    margin: 17px 0px 0px;
+}
+.images{
+    width: 500px;
+    position: relative;
+    top: 925px;
+    margin: 48px 600px;
+}

@@ -126,7 +126,7 @@ router.get('/', (req, res) => {
           }
         });
     } else if (req.query.venuekeyword) {
-      let tickUri = 'https://app.ticketmaster.com/discovery/v2/venues?apikey=AzNforc4sWUIV3ilcFnVn7GIQpkxfhhh&keyword='
+      let tickUri = 'https://app.ticketmaster.com/discovery/v2/venues?apikey=aaa&keyword='
         + req.query.venuekeyword;
      // console.log(tickUri);
       axios.get(tickUri).then(response =>{
@@ -145,7 +145,7 @@ router.get('/', (req, res) => {
         if(res.data.resultsPage.status === 'ok') {
           var theUniqID = res.data.resultsPage.results.venue[0].id;
           var newUri = 'https://api.songkick.com/api/3.0/venues/' + theUniqID
-            + '/calendar.json?&apikey=afmZMG6nwKb8OiGM';
+            + '/calendar.json?&apikey=aaaa';
           return axios.get(newUri);
         }
       })

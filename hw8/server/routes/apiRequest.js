@@ -4,7 +4,7 @@ const router = express.Router();
 const geohash = require('ngeohash');
 const axios = require('axios');
 const SpotifyWebApi = require('spotify-web-api-node');
-const tickMastAPI = 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=AzNforc4sWUIV3ilcFnVn7GIQpkxfhhh';
+const tickMastAPI = 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=aaa';
 
 
 
@@ -58,7 +58,7 @@ router.get('/', (req, res) => {
           })
       } else {
         var googleGeoUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address='
-          + req.query.locationtype.replace(' ', '+') + '&key=AIzaSyCAyFDwK7qI-4Q1yAP93AWwik3oAWGs0cA';
+          + req.query.locationtype.replace(' ', '+') + '&key=aaa';
         // console.log(googleGeoUrl);
 
         console.log(req.query.locationtype);
@@ -82,8 +82,8 @@ router.get('/', (req, res) => {
     } else if (req.query.keyword && req.query.searchType){
       // console.log(req.query.keyword.replace(/\s+/g, '+'));
 
-      var uri ='https://www.googleapis.com/customsearch/v1?q=' + req.query.keyword.replace(/\s+/g, '+') + '&cx=016345570503680932184:kw0ijuikvey&imgSize=huge&imgType=news&num=8&searchType=' +
-        req.query.searchType.replace(' ', '+') + '&key=AIzaSyA-GT1V1qKhkxlJHObxh8K5CpPNiYKaWW8';
+      var uri ='https://www.googleapis.com/customsearch/v1?q=' + req.query.keyword.replace(/\s+/g, '+') + '&cx=aaijuikvey&imgSize=huge&imgType=news&num=8&searchType=' +
+        req.query.searchType.replace(' ', '+') + '&key=aaa';
       console.log(uri);
       // console.log(uri);
       axios.get(uri).then( response => {
@@ -99,8 +99,8 @@ router.get('/', (req, res) => {
 
     } else if (req.query.keyword) {
       var spotifyApi = new SpotifyWebApi({
-        clientId: '152a4ae47ff44a3cb967767057ba1762',
-        clientSecret: '00cdbc7215984497a4922452a32e6972',
+        clientId: 'aaa',
+        clientSecret: 'aaa',
         redirectUri: 'http://localhost:4800/callback'
       });
 
@@ -139,7 +139,7 @@ router.get('/', (req, res) => {
 
     } else if (req.query.songkickReq) {
       var reqUrl = 'https://api.songkick.com/api/3.0/search/venues.json?query='
-        + req.query.songkickReq.replace(' ', '+') + '&apikey=afmZMG6nwKb8OiGM';
+        + req.query.songkickReq.replace(' ', '+') + '&apikey=aaa';
       //console.log(reqUrl);
       axios.get(reqUrl).then(res => {
         if(res.data.resultsPage.status === 'ok') {
@@ -155,7 +155,7 @@ router.get('/', (req, res) => {
         })
     } else if (req.query.autoCompkeyword) {
       //console.log(111);
-      var reqU = 'https://app.ticketmaster.com/discovery/v2/suggest?apikey=AzNforc4sWUIV3ilcFnVn7GIQpkxfhhh&keyword='
+      var reqU = 'https://app.ticketmaster.com/discovery/v2/suggest?apikey=aaa='
         + req.query.autoCompkeyword.replace(' ', '+');
       //console.log(reqU);
       axios.get(reqU).then(respp => {
